@@ -18,7 +18,13 @@ if __package__ == '':
     path = os.path.dirname(os.path.dirname(__file__))
     sys.path.insert(0, path)
 
+
 from pier_mob.cli import version
 
-if __name__ == '__main__':
+
+def main():
     print(f"Pier Mob v{version()}")
+
+
+if __name__ == '__main__':
+    main()

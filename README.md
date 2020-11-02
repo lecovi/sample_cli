@@ -125,6 +125,32 @@ one for Test PyPI (and vivecersa). The same goes for Tokens.
 - Upload URL: https://test.pypi.org/legacy/
 - Pip download URL: https://test.pypi.org/simple/ (remember to add `--index-url`)
 
+## Executable
+
+Let's change [`pier_mob/__main__.py`](./pier_mob/__main__.py) for creating a console
+script instalable. Wrap the `print` function inside `main()` and modify `setup.py`
+
+```python
+entry_points={
+'console_scripts': [
+    'pier=pier_mob.__main__:main',
+    ],
+},
+```
+
+This will create a `pier` executable that will call the `main()` function inside 
+`__main__.py`.
+
+Create a new virtualenv and test installation:
+
+```bash
+$ python3 -m venv executable
+$ source executable/bin/activate
+(executable) $ python3 setup.py install
+(executable) $ pier
+Pier Mob v0.0.2
+```
+
 # Resources
 
 - [Packaging Python](https://packaging.python.org/tutorials/packaging-projects/)
