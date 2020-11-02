@@ -63,6 +63,67 @@ Tests can be run as:
 $ python3 setup.py tests
 ```
 
+## Let's publish our package
+
+You will need `setuptools`, `wheel`, and `twine` for creating and uploading to PyPI.
+Install this packages with `pip` in new virtualenv or in your user level packages.
+
+Create a new virualenv, activate it and install needed packages:
+
+```bash
+$ python3 -m venv pier_build
+$ source pier_build/bin/activate
+(pier_build) $ pip install setuptools wheel twine
+```
+
+Now we need to build source distribution files. Run the following command:
+
+```bash
+(pier_build) $ python3 setup.py sdist bdist_wheel
+```
+This command will output a lot of text and once completed will generate two files in the
+`dist` directory: a `.tar.gz` which is a Source Distribution, and a `.whl` which is a 
+Built Distribution.
+
+Now we are ready to upload our package. Use your PyPI account and create a new API Token.
+When `twine` prompts your username write `__token__` then use your API Token as password.
+
+```bash
+(pier_build) $ python3 -m twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
+Uploading distributions to https://upload.pypi.org/legacy/
+Enter your username: __token__
+Enter your password:
+```
+
+✨ 🍰 ✨ Congrats! Your package is now published on PyPI: https://pypi.org/project/pier-mob-lecovi/
+
+Create a new virtualenv and install your package from PyPI
+
+```bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $ pip install pier-mob-lecovi
+...
+$ python
+```
+
+Inside REPL run:
+
+```python
+>>> import pier_mob
+>>> pier_mob.version()
+'0.0.1'
+```
+
+✨ 🍰 ✨ It works!!
+
+### Test PyPI
+
+It's a complete separate instance. If you have a user on PyPI you need to create another
+one for Test PyPI (and vivecersa). The same goes for Tokens.
+
+- Upload URL: https://test.pypi.org/legacy/
+- Pip download URL: https://test.pypi.org/simple/ (remember to add `--index-url`)
 
 # Resources
 
