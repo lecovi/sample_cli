@@ -7,10 +7,10 @@ Sample repository for creating a CLI in Python.
 This repository is for educational purposes. I want to show how to create an executable 
 CLI tool written in Python. With this I wanna cover:
 
-- [ ] Creating a Python Package using traditional `setup.py`.
+- [x] Creating a Python Package using traditional `setup.py`.
 - [ ] Creating a Python Package using `poetry`.
-- [ ] Publishing to PyPI.
-- [ ] Creating a simple CLI tool that installs on to your system and is executable.
+- [x] Publishing to PyPI.
+- [x] Creating a simple CLI tool that installs on to your system and is executable.
 - [ ] Creating plugins for the CLI tool that are *pipinstalable*.
 
 # Package
@@ -60,7 +60,7 @@ Also with this minimal structure we have tests.
 Tests can be run as:
 
 ```bash
-$ python3 setup.py tests
+$ python3 setup.py test
 ```
 
 ## Let's publish our package
@@ -149,6 +149,30 @@ $ source executable/bin/activate
 (executable) $ python3 setup.py install
 (executable) $ pier
 Pier Mob v0.0.2
+```
+
+## Adding commands
+
+Let's improve our interface using [Typer](https://typer.tiangolo.com/). Add `info()` and `version()` functions to [cli.py](./pier_mob/cli.py). *DON'T FORGET TO UPDATE `__version__`*.
+You also will need to update `__main__` and `__init__` and import the new `app` instead of `version()`.
+We need to change our unittest for the better `pytest` suite. 
+
+```bash
+(install) $ pip install typer pytest
+```
+
+Now test must be run with:
+
+```
+```bash
+(install) $ pytest
+```
+
+Now you can update your package on PyPI.
+
+```bash
+(build) $ python3 setup.py build
+(build) $ python3 -m twine upload --repository pypi dist/*
 ```
 
 # Resources
