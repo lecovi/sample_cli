@@ -1,1 +1,1 @@
-from .cli import version
+from .cli import app

@@ -19,11 +19,11 @@ if __package__ == '':
     sys.path.insert(0, path)
 
 
-from pier_mob.cli import version
+from pier_mob.cli import app
 
 
 def main():
-    print(f"Pier Mob v{version()}")
+    app()
 
 
 if __name__ == '__main__':
