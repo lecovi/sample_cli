@@ -25,4 +25,7 @@ setuptools.setup(
         'pier=pier_mob.__main__:main',
         ],
     },
+    install_requires=[
+        "typer",
+    ],
 )
