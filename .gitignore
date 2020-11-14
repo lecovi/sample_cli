@@ -132,5 +132,6 @@ dmypy.json
 .vscode/
 
 # Virtualenv for building package
-pier_build/
+vbuild/
+vinstall/
 venv*/
