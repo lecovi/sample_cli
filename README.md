@@ -153,8 +153,11 @@ Pier Mob v0.0.2
 
 ## Adding commands
 
-Let's improve our interface using [Typer](https://typer.tiangolo.com/). Add `info()` and `version()` functions to [cli.py](./pier_mob/cli.py). *DON'T FORGET TO UPDATE `__version__`*.
-You also will need to update `__main__` and `__init__` and import the new `app` instead of `version()`.
+Let's improve our interface using [Typer](https://typer.tiangolo.com/). 
+Add `info()` and `version()` functions to [cli.py](./pier_mob/cli.py). 
+*DON'T FORGET TO UPDATE `__version__`*.
+You also will need to update `__main__` and `__init__` and import the new `app` instead 
+of `version()`.
 We need to change our unittest for the better `pytest` suite. 
 
 ```bash
@@ -163,7 +166,6 @@ We need to change our unittest for the better `pytest` suite.
 
 Now test must be run with:
 
-```
 ```bash
 (install) $ pytest
 ```
