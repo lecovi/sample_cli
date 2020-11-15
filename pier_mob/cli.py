@@ -1,9 +1,15 @@
+from pier_mob import items
 import typer
+from .items import app as items
+from .users import app as users
+
 
 __version__ = "0.0.3.2"
 
 
 app = typer.Typer()
+app.add_typer(items, name="items")
+app.add_typer(users, name="users")
 
 
 @app.command()
